@@ -3,6 +3,10 @@ const flag = document.querySelectorAll('.flag img');
 const timeEl = document.getElementById('timer');
 const start = document.getElementById('game-start');
 const gameover = document.getElementById('game-over');
+const lostlives = document.querySelector('.lives img');
+const restartgame = document.getElementById('restart');
+const contflag = document.querySelector('.flag');
+const score = document.querySelector('.numberscore');
 let countryfind;
 let countries = [];
 
@@ -47,7 +51,8 @@ function doClick(event) {
     .split('.')[0];
 
   if (name === countryfind.code) {
-    timeEl.innerHTML = +timeEl.innerText + 4;
+    timeEl.innerHTML = +timeEl.innerText + 3;
+    score.innerHTML = +score.innerHTML + 1;
 
     for (let i = 0; i < flag.length; i++) {
       flag[i].removeEventListener('click', doClick);
@@ -57,6 +62,10 @@ function doClick(event) {
 
     console.log('trouver');
   } else {
-    console.log('perdu fdp');
+    console.log('perdu ');
   }
 }
+
+restartgame.addEventListener('click', function() {
+  startGame();
+});
