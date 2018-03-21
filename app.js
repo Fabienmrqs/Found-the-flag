@@ -54,6 +54,10 @@ function doClick(event) {
     timeEl.innerHTML = +timeEl.innerText + 3;
     score.innerHTML = +score.innerHTML + 1;
 
+    if (timeEl.innerHTML > 30) {
+      timeEl.innerText = 30;
+    }
+
     for (let i = 0; i < flag.length; i++) {
       flag[i].removeEventListener('click', doClick);
     }
